@@ -1,0 +1,242 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* custom */
+
+.job-opening-chip svg {
+  -webkit-animation: ring 4s ease-in-out 1s infinite;
+  -moz-animation: ring 4s ease-in-out 0.7s infinite;
+  animation: ring 4s ease-in-out 0.7s infinite;
+
+  fill: #ff0000;
+  display: block;
+  font-size: 40px;
+  -webkit-transform-origin: 50% 4px;
+  -moz-transform-origin: 50% 4px;
+  transform-origin: 50% 4px;
+  width: 40px;
+}
+
+.job-department-list {
+  background-color: #f5f5f5 !important;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 0 22px;
+}
+
+.job-list {
+  border-radius: 4px;
+  padding: 0 0 0 8px;
+  margin-bottom: 8px !important;
+  border: 1px solid transparent;
+  transition: 0.4s all;
+}
+
+.job-list span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .job-list button {
+  background-color: #350f60;
+  color: #fff;
+  padding: 5px 25px;
+  margin-right: 2px;
+  transition: 0.4s all;
+} */
+
+.job-list:hover {
+  border: 1px solid darkgray;
+}
+
+.apply-btn:hover {
+  color: #fff !important;
+  background-color: #000;
+}
+
+@keyframes ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  1% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+  3% {
+    -webkit-transform: rotate(-28deg);
+    transform: rotate(-28deg);
+  }
+  5% {
+    -webkit-transform: rotate(34deg);
+    transform: rotate(34deg);
+  }
+  7% {
+    -webkit-transform: rotate(-32deg);
+    transform: rotate(-32deg);
+  }
+  9% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+  11% {
+    -webkit-transform: rotate(-28deg);
+    transform: rotate(-28deg);
+  }
+  13% {
+    -webkit-transform: rotate(26deg);
+    transform: rotate(26deg);
+  }
+  15% {
+    -webkit-transform: rotate(-24deg);
+    transform: rotate(-24deg);
+  }
+  17% {
+    -webkit-transform: rotate(22deg);
+    transform: rotate(22deg);
+  }
+  19% {
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+  }
+  21% {
+    -webkit-transform: rotate(18deg);
+    transform: rotate(18deg);
+  }
+  23% {
+    -webkit-transform: rotate(-16deg);
+    transform: rotate(-16deg);
+  }
+  25% {
+    -webkit-transform: rotate(14deg);
+    transform: rotate(14deg);
+  }
+  27% {
+    -webkit-transform: rotate(-12deg);
+    transform: rotate(-12deg);
+  }
+  29% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  31% {
+    -webkit-transform: rotate(-8deg);
+    transform: rotate(-8deg);
+  }
+  33% {
+    -webkit-transform: rotate(6deg);
+    transform: rotate(6deg);
+  }
+  35% {
+    -webkit-transform: rotate(-4deg);
+    transform: rotate(-4deg);
+  }
+  37% {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+  }
+  39% {
+    -webkit-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+  }
+  41% {
+    -webkit-transform: rotate(1deg);
+    transform: rotate(1deg);
+  }
+  43% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+
+.bg-white {
+  background-color: #fff !important;
+}
+
+.loading-status {
+  position: absolute;
+  z-index: 999999;
+  width: 100%;
+  height: 100%;
+
+  backdrop-filter: blur(10px);
+}
+
+.loading-img {
+  position: absolute;
+  left: 45%;
+  top: 45%;
+}
+
+header.MuiPaper-root {
+  background-color: #182f59;
+}
+
+.form-number-input {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.4375em;
+  letter-spacing: 0.00938em;
+  color: rgba(0, 0, 0, 0.87);
+  box-sizing: border-box;
+  position: relative;
+  cursor: text;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  border-radius: 4px;
+}
+
+.number-input-field {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.4375em;
+  letter-spacing: 0.00938em;
+  color: rgba(0, 0, 0, 0.87);
+  box-sizing: border-box;
+  position: relative;
+  cursor: text;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 3.4375em;
+  width: 100%;
+  padding: 16.5px 14px;
+  position: relative;
+  border-radius: 4px;
+  border-color: rgba(0, 0, 0, 0.23);
+}

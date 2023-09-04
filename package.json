@@ -1,0 +1,41 @@
+{
+  "name": "job-portal",
+  "author": "Lakshman Gope",
+  "version": "1.0.0",
+  "description": "Job Portal is The MERN Stack Web Application",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js",
+    "dev-server": "nodemon server.js",
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "both": "concurrently \"npm run dev-server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgope/job-portal.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lgope/job-portal/issues"
+  },
+  "homepage": "https://github.com/lgope/job-portal#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chalk": "^4.0.0",
+    "compression": "^1.7.4",
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^5.9.28",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}

@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useContext, useEffect, useState } from "react";
 import {
   Box,
   Collapse,
@@ -28,9 +28,15 @@ import Loading from "../../../component/Loading";
 import { allDepartments } from "../../utils";
 import JobModal from "./JobModal.jsx";
 import UpdateModal from "../UpdatePost/UpdateModal";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Careers = () => {
   const classes = useStyles();
+
+  // auth
+  const { user, loading } = useContext(AuthContext);
+
+  console.log({ user, loading });
 
   // redux
   const job = useSelector(selectJobPosts);
@@ -132,25 +138,30 @@ const Careers = () => {
                                     display: "flex",
                                     alignItems: "center",
                                   }}>
-                                  {/* {post.user === user.email && ()} */}
+                                  {post.user === user.email && (
+                                    <>
+                                      <IconButton
+                                        color="secondary"
+                                        aria-label="update data"
+                                        title="Update"
+                                        onClick={() =>
+                                          handleShowUpdateModal(post)
+                                        }>
+                                        <EditNoteIcon />
+                                      </IconButton>
 
-                                  <IconButton
-                                    color="secondary"
-                                    aria-label="update data"
-                                    title="Update"
-                                    onClick={() => handleShowUpdateModal(post)}>
-                                    <EditNoteIcon />
-                                  </IconButton>
+                                      <IconButton
+                                        color="warning"
+                                        aria-label="delete post"
+                                        title="DELETE"
+                                        onClick={() =>
+                                          dispatch(deleteJobPost(post._id))
+                                        }>
+                                        <DeleteIcon />
+                                      </IconButton>
+                                    </>
+                                  )}
 
-                                  <IconButton
-                                    color="warning"
-                                    aria-label="delete post"
-                                    title="DELETE"
-                                    onClick={() =>
-                                      dispatch(deleteJobPost(post._id))
-                                    }>
-                                    <DeleteIcon />
-                                  </IconButton>
                                   <IconButton
                                     color="success"
                                     aria-label="post details"

@@ -1,17 +1,8 @@
-import { Box, Stack, TextField, Typography, Paper, Chip } from "@mui/material";
+import { Box, Stack, TextField, Typography, Chip } from "@mui/material";
 import banner from "../../../assets/images/banner.jpg";
 import SearchIcon from "@mui/icons-material/Search";
-import { styled } from "@mui/material/styles";
 
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 const Banner = () => (
   <Box

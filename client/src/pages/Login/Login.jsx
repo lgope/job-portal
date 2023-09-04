@@ -40,7 +40,7 @@ const Login = () => {
         };
 
         //get token
-        fetch("http://localhost:8000/api/auth/jwt", {
+        fetch("https://job-portal-lgope.onrender.com/api/auth/jwt", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +49,6 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            // local storage is the easiest but not the best place to store jwt token
             localStorage.setItem("job-token", data.token);
             navigate(from, { replace: true });
           });

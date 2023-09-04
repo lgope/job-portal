@@ -30,7 +30,7 @@ const PostHeading = () => (
         mb: 4,
         textAlign: "center",
       }}>
-      We are always on the lookout for talented people
+      We are looking for talented people to contribute and grow the community
     </Typography>
     <Stack direction="row" justifyContent="center">
       <Item sx={{ backgroundColor: "#000", color: "white" }}>

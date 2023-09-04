@@ -23,9 +23,9 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: { xs: "95vw", md: "80vw" },
   height: { xs: "95vh", md: "80vh" },
+  boxShadow: 24,
   bgcolor: "background.paper",
   border: "2px solid #000",
-  boxShadow: 24,
   p: 4,
 };
 const crossStyle = {
@@ -43,23 +43,6 @@ const UpdateModal = ({ openModal, setOpenModal, post }) => {
   const dispatch = useDispatch();
 
   const [jobPost, setJobPostData] = useState(post);
-  //   const {
-  //     designation,
-  //     company,
-  //     description,
-  //     responsibilities,
-  //     requirements,
-  //     benefits,
-  //     timing,
-  //     qualifications,
-  //     location,
-  //     department,
-  //     vacancy,
-  //     type,
-  //     applyLastDate,
-  //     address,
-  //     salary,
-  //   } = post;
 
   const onInputChange = (e) => {
     setJobPostData({
@@ -72,10 +55,7 @@ const UpdateModal = ({ openModal, setOpenModal, post }) => {
     e.preventDefault();
     dispatch(updateJobPost(jobPost));
 
-    // TODO: clear state and redirect
-    // navigate("/view-post", { replace: true });
-
-    // e.target.reset();
+    setOpenModal(false);
   };
 
   return (

@@ -1,4 +1,3 @@
-// import loadingImage from '../../images/webp.webp';
 import loadingImage from "../assets/images/loading.webp";
 
 const Loading = () => (

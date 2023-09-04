@@ -11,24 +11,14 @@ import {
   createTheme,
   ThemeProvider,
 } from "@mui/material";
-import HowToRegIcon from "@mui/icons-material/HowToReg";
 
+import HowToRegIcon from "@mui/icons-material/HowToReg";
 import HowToRegSharpIcon from "@mui/icons-material/HowToRegSharp";
 
-// import Avatar from "@mui/material/Avatar";
-// import Button from "@mui/material/Button";
-// import CssBaseline from "@mui/material/CssBaseline";
-// import TextField from "@mui/material/TextField";
-// import Grid from "@mui/material/Grid";
-// import Box from "@mui/material/Box";
-// import Typography from "@mui/material/Typography";
-// import Container from "@mui/material/Container";
-// import { createTheme, ThemeProvider } from "@mui/material/styles";
-
 import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import useStyles from "../../styles/styles";
 import { AuthContext } from "../../contexts/AuthProvider";
-import toast from "react-hot-toast";
 
 const theme = createTheme();
 

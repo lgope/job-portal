@@ -7,7 +7,7 @@ const navigate = useNavigate();
 export const signIn = (body) => {
   //get token
   axios
-    .post("http://localhost:8000/api/auth/jwt", body, {
+    .post("https://job-portal-lgope.onrender.com/api/auth/jwt", body, {
       headers: {
         "Content-Type": "application/json",
       },

@@ -12,7 +12,7 @@ import axios from "axios";
 export const getJobPost = (_id) => (dispatch) => {
   dispatch(setLoading());
   axios
-    .get(`http://localhost:8000/api/job/${id}`, {
+    .get(`https://job-portal-lgope.onrender.com/api/job/${id}`, {
       headers: {
         'Content-type': 'application/json',
         "x-auth-token": `${localStorage.getItem("job-token")}`,
@@ -32,7 +32,7 @@ export const getJobPost = (_id) => (dispatch) => {
 export const getAllJobPost = () => (dispatch) => {
   dispatch(setLoading());
   axios
-    .get("http://localhost:8000/api/job/get-all-job", {
+    .get("https://job-portal-lgope.onrender.com/api/job/get-all-job", {
       headers: {
         "x-auth-token": `${localStorage.getItem("job-token")}`,
       },
@@ -51,7 +51,7 @@ export const getAllJobPost = () => (dispatch) => {
 export const postJob = (body) => (dispatch) => {
   dispatch(setLoading());
   axios
-    .post("http://localhost:8000/api/job/post-job", body, {
+    .post("https://job-portal-lgope.onrender.com/api/job/post-job", body, {
       headers: {
         "Content-Type": "application/json",
         "x-auth-token": `${localStorage.getItem("job-token")}`,
@@ -74,7 +74,7 @@ export const postJob = (body) => (dispatch) => {
 export const updateJobPost = (post) => (dispatch) => {
   dispatch(setLoading());
   axios
-    .patch(`http://localhost:8000/api/job/update-job/${post._id}`, post, {
+    .patch(`https://job-portal-lgope.onrender.com/api/job/update-job/${post._id}`, post, {
       headers: {
         "Content-Type": "application/json",
         "x-auth-token": `${localStorage.getItem("job-token")}`,
@@ -98,7 +98,7 @@ export const deleteJobPost = (_id) => (dispatch) => {
   if (confirm("Are you sure you want to delete?")) {
     dispatch(setLoading());
     axios
-      .delete(`http://localhost:8000/api/job/delete-job/${_id}`, {
+      .delete(`https://job-portal-lgope.onrender.com/api/job/delete-job/${_id}`, {
         headers: {
           "x-auth-token": `${localStorage.getItem("job-token")}`,
         },

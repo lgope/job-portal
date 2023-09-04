@@ -5,11 +5,8 @@ import Login from "../../Pages/Login/Login";
 import SingUp from "../../Pages/SignUp/SingUp";
 import Error from "../../Pages/Error/Error";
 import CreatePost from "../../Pages/Home/CreatePost/CreatePost";
-import Careers from "../../pages/Home/ViewPost/Careers";
-import UpdatePost from "../../Pages/Home/UpdatePost/UpdatePost";
+import Careers from "../../pages/Home/ViewPost/Careers.jsx";
 import PrivateRoute from "../private-routes/PrivateRoutes";
-import { Suspense } from "react";
-import Loading from "../../component/Loading";
 
 const router = createBrowserRouter([
   {
@@ -45,16 +42,6 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Careers />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/update-post/:id",
-        element: (
-          <PrivateRoute>
-            <Suspense fallback={<Loading />}>
-              <UpdatePost />
-            </Suspense>
           </PrivateRoute>
         ),
       },

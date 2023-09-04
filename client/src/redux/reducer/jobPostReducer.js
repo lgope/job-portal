@@ -23,11 +23,8 @@ export const jobPostReducer = createSlice({
     },
 
     postNewJob: (state, action) => {
-      state = {
-        ...state,
-        posts: [...state.posts, action.payload],
-        loading: false,
-      };
+      state.posts = [...state.posts, action.payload],
+        state.loading = false;
     },
 
     updatePost: (state, action) => {

@@ -28,7 +28,6 @@ app.use(express.json());
 
 // compress all responses
 app.use(compression());
-console.log('app')
 // auth Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);

@@ -6,8 +6,6 @@ import AppError from "../utils/appError.js";
 export const validateToken = (req, res, next) => {
   const authToken = req.header('x-auth-token');
 
-  // console.log('as ' , req.header('x-auth-token'))
-
   if (!authToken) {
     return res.status(401).send({ message: "Unauthorized Access Detected!" });
   }

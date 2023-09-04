@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { Fragment, useContext } from "react";
 import {
   Grid,
   Typography,
@@ -13,7 +13,6 @@ import {
 
 import useStyles from "../../../styles/styles";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import { useDispatch } from "react-redux";
@@ -38,6 +37,7 @@ const CreatePost = () => {
       vacancy,
       description,
       responsibilities,
+      qualifications,
       requirements,
       benefits,
       applyLastDate,
@@ -56,6 +56,7 @@ const CreatePost = () => {
       department: department.value,
       description: description.value,
       responsibilities: responsibilities.value,
+      qualifications: qualifications.value,
       requirements: requirements.value,
       benefits: benefits.value,
       applyLastDate: applyLastDate.value,
@@ -73,11 +74,11 @@ const CreatePost = () => {
   };
 
   return (
-    <React.Fragment>
+    <Fragment>
       <div className={classes.MakePost}>
         <Card className={classes.MakePostCard}>
           <Typography mb={5} variant="h3" align="center" gutterBottom>
-            Create Job Post
+            Post New Job
           </Typography>
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3}>
@@ -109,8 +110,7 @@ const CreatePost = () => {
                     required
                     label="Location"
                     id="location"
-                    name="location"
-                    onChange={(e) => console.log("location ", e.target.value)}>
+                    name="location">
                     {jobLocations.map((location, index) => (
                       <MenuItem key={index} value={location}>
                         {location}
@@ -161,10 +161,7 @@ const CreatePost = () => {
                     required
                     label="Department"
                     id="department"
-                    name="department"
-                    onChange={(e) =>
-                      console.log("department ", e.target.value)
-                    }>
+                    name="department">
                     {allDepartments.map((item, index) => (
                       <MenuItem key={index} value={item}>
                         {item}
@@ -177,12 +174,7 @@ const CreatePost = () => {
               <Grid item xs={12}>
                 <FormControl fullWidth>
                   <InputLabel>Type*</InputLabel>
-                  <Select
-                    required
-                    label="Type"
-                    id="type"
-                    name="type"
-                    onChange={(e) => console.log("type ", e.target.value)}>
+                  <Select required label="Type" id="type" name="type">
                     {jobTypes.map((type, index) => (
                       <MenuItem key={index} value={type}>
                         {type}
@@ -213,6 +205,7 @@ const CreatePost = () => {
                   fullWidth
                 />
               </Grid>
+
               <Grid item xs={12} sm={12}>
                 <TextField
                   required
@@ -224,6 +217,19 @@ const CreatePost = () => {
                   fullWidth
                 />
               </Grid>
+
+              <Grid item xs={12} sm={12}>
+                <TextField
+                  required
+                  id="standard-multiline-static"
+                  label="Qualifications"
+                  name="qualifications"
+                  multiline
+                  rows={4}
+                  fullWidth
+                />
+              </Grid>
+
               <Grid item xs={12} sm={12}>
                 <TextField
                   required
@@ -273,7 +279,7 @@ const CreatePost = () => {
           </form>
         </Card>
       </div>
-    </React.Fragment>
+    </Fragment>
   );
 };
 

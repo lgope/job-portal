@@ -71,7 +71,6 @@ router.post('/', (req, res, next) => {
 });
 
 router.post('/jwt', (req, res) => {
-  console.log('/jwt')
   const user = req.body;
   const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '1d' })
   res.send({ token })

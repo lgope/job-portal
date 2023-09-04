@@ -41,14 +41,8 @@ const SingUp = () => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-
     createUser(data.get("email"), data.get("password"))
       .then((result) => {
-        console.log(result);
         const user = result.user;
         if (user) {
           toast("User Created Successfully");
@@ -56,8 +50,7 @@ const SingUp = () => {
         navigate("/", { replace: true });
       })
       .catch((error) => {
-        console.log(error);
-        toast(error.message);
+        toast.error(error.message);
       });
   };
   return (

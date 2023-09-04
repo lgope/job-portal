@@ -7,19 +7,6 @@ import Job from '../models/jobModel.js';
 // create Job
 export const createJobPost = factory.createOne(Job);
 
-// get one Job
-// export const getJob = catchAsync(async (req, res, next) => {
-//   console.log('id ', req.params.id)
-//   const job = await Job.findById(req.params.id);
-
-//   if (!job) return next(new AppError('Job not found with ID!', 404));
-
-//   return res.status(200).json({
-//     status: 'success',
-//     doc: job,
-//   });
-// });
-
 // get one
 export const getJob = factory.getOne(Job);
 

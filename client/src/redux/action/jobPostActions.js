@@ -11,8 +11,6 @@ import axios from "axios";
 
 export const getJobPost = (_id) => (dispatch) => {
   dispatch(setLoading());
-
-  console.log({_id})
   axios
     .get(`http://localhost:8000/api/job/${id}`, {
       headers: {
@@ -40,7 +38,6 @@ export const getAllJobPost = () => (dispatch) => {
       },
     })
     .then((res) => {
-      console.log({ res });
       if (res.status === 200) {
         dispatch(setAllPost(res.data.doc));
       } else {
@@ -61,7 +58,6 @@ export const postJob = (body) => (dispatch) => {
       },
     })
     .then((res) => {
-      console.log({ res });
       if (res.status === 201) {
         toast.success("Created Successfully!", {
           icon: "✅",
@@ -85,7 +81,6 @@ export const updateJobPost = (post) => (dispatch) => {
       },
     })
     .then((res) => {
-      console.log({ res });
       if (res.status === 200) {
         toast.success("Updated Successfully!", {
           icon: "🛠️",

@@ -21,8 +21,7 @@ const Header = () => {
 
   const handleLogout = () => {
     logOutUser().then(() => {
-      console.log("User Log Out");
-      toast("User Log Out");
+      toast.success("See You Soon! 👋🏻");
     });
   };
 

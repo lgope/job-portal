@@ -28,14 +28,8 @@ const Login = () => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-
     signInUser(data.get("email"), data.get("password"))
       .then((result) => {
-        console.log(result);
         const user = result.user;
         if (user) {
           toast("User Logged In Successfully");
@@ -55,15 +49,13 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             // local storage is the easiest but not the best place to store jwt token
             localStorage.setItem("job-token", data.token);
             navigate(from, { replace: true });
           });
       })
       .catch((error) => {
-        console.log(error);
-        toast(error.message);
+        toast.error(error.message);
       });
   };
 

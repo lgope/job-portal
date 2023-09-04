@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import Job from "./../../models/jobModel.js";
 
 dotenv.config({ path: "../../config.env" });
-console.log("url ", process.env.DATABASE_URI)
+
 mongoose
   .connect(process.env.DATABASE_URI, {
     useUnifiedTopology: true,

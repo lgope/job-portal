@@ -13,11 +13,8 @@ export const jobPostReducer = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      console.log(2);
       state.posts = action.payload;
       state.loading = false;
-
-      // state = { ...state, posts: action.payload, loading: false };
     },
 
     setPost: (state, action) => {

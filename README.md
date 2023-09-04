@@ -36,5 +36,5 @@ and feel free to share your opinion, constructive criticism, or comments about m
 
 ## Deployed Version
 
-Front End 👉🏻 https://daily-records.herokuapp.com/
-Back-End API 👉🏻 https://daily-records.herokuapp.com/
+Front End 👉🏻 https://jp-lgope.netlify.app
+Back-End API 👉🏻 https://job-portal-lgope.onrender.com

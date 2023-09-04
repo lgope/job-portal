@@ -99,6 +99,7 @@ const Login = () => {
               label="Password"
               type="password"
               id="password"
+              placeholder="Correct Horse Battery Staple"
               autoComplete="current-password"
             />
             <Button

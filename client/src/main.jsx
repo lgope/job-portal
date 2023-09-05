@@ -7,7 +7,7 @@ import store from "./redux/store.js";
 import App from "./App.jsx";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("I-Am-Groot")).render(
   <React.StrictMode>
     <Provider store={store}>
       <AuthProvider>

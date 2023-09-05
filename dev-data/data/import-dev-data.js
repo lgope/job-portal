@@ -36,7 +36,7 @@ const deleteData = async () => {
   } catch (err) {
     console.log(err);
   }
-  process.exit();
+  // process.exit();
 };
  
 if (process.argv[2] === "--import") {
@@ -48,4 +48,4 @@ if (process.argv[2] === "--import") {
 console.log(process.argv);
 
 // deleteData();
-importData();
+// importData();

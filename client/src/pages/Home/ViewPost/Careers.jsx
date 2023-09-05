@@ -1,4 +1,4 @@
-import { Suspense, useContext, useEffect, useState } from "react";
+import { Fragment, Suspense, useContext, useEffect, useState } from "react";
 import {
   Box,
   Collapse,
@@ -34,9 +34,7 @@ const Careers = () => {
   const classes = useStyles();
 
   // auth
-  const { user, loading } = useContext(AuthContext);
-
-  console.log({ user, loading });
+  const { user } = useContext(AuthContext);
 
   // redux
   const job = useSelector(selectJobPosts);
@@ -139,7 +137,7 @@ const Careers = () => {
                                     alignItems: "center",
                                   }}>
                                   {post.user === user.email && (
-                                    <>
+                                    <Fragment>
                                       <IconButton
                                         color="secondary"
                                         aria-label="update data"
@@ -159,7 +157,7 @@ const Careers = () => {
                                         }>
                                         <DeleteIcon />
                                       </IconButton>
-                                    </>
+                                    </Fragment>
                                   )}
 
                                   <IconButton

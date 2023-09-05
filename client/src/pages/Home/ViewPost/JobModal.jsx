@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { Box, Button, Typography, Modal } from "@mui/material";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import { capitalizeFirstLetter } from "../../utils";
+import moment from "moment/moment";
 
 const style = {
   position: "absolute",
@@ -41,6 +43,8 @@ const JobModal = ({ openModal, setOpenModal, post }) => {
     type,
     address,
     salary,
+    applyLastDate,
+    createdAt,
   } = post;
   return (
     <Modal
@@ -56,72 +60,57 @@ const JobModal = ({ openModal, setOpenModal, post }) => {
           <Typography
             id="modal-modal-title"
             variant="h5"
-            sx={{ pr: 4, borderRight: "1px solid darkgray", mr: 2 }}>
+            sx={{
+              pr: 4,
+              borderRight: "1px solid darkgray",
+              mr: 2,
+            }}>
             {designation}
           </Typography>
-          <Typography id="modal-modal-title" variant="p" sx={{ pr: 4, mr: 2 }}>
+          <Typography
+            id="modal-modal-title"
+            variant="p"
+            sx={{ pr: 4, mr: 2, borderRight: "1px solid darkgray" }}>
             {company}
           </Typography>
+
+          <Typography
+            id="modal-modal-title"
+            component="span"
+            sx={{
+              width: "fit-content",
+              fontSize: "12px",
+              color: "cadetblue",
+            }}>
+            Posted: {moment(createdAt).fromNow()}
+          </Typography>
         </Typography>
+
         <Box sx={{ height: "70%", overflowY: "scroll", mb: "18px" }}>
-          <Typography id="modal-modal-title" component="div" sx={{ mb: 5 }}>
-            <Typography id="modal-modal-title" variant="h5" sx={{ mb: 1 }}>
-              Description:
-            </Typography>
+          {[
+            { description },
+            { qualifications },
+            { requirements },
+            { responsibilities },
+            { benefits },
+          ].map((obj, index) => (
             <Typography
               id="modal-modal-title"
-              variant="p"
-              sx={{ width: "fit-content" }}>
-              {description}
+              component="div"
+              sx={{ mb: 5 }}
+              key={index}>
+              <Typography id="modal-modal-title" variant="h5" sx={{ mb: 1 }}>
+                {capitalizeFirstLetter(Object.keys(obj)[0])} :
+              </Typography>
+              <Typography
+                id="modal-modal-title"
+                variant="p"
+                sx={{ width: "fit-content" }}>
+                {Object.values(obj)[0]}
+              </Typography>
             </Typography>
-          </Typography>
+          ))}
 
-          <Typography id="modal-modal-title" component="div" sx={{ mb: 5 }}>
-            <Typography id="modal-modal-title" variant="h5" sx={{ mb: 1 }}>
-              Qualifications:
-            </Typography>
-            <Typography
-              id="modal-modal-title"
-              variant="p"
-              sx={{ width: "fit-content" }}>
-              {qualifications}
-            </Typography>
-          </Typography>
-
-          <Typography id="modal-modal-title" component="div" sx={{ mb: 5 }}>
-            <Typography id="modal-modal-title" variant="h5" sx={{ mb: 1 }}>
-              Requirements:
-            </Typography>
-            <Typography
-              id="modal-modal-title"
-              variant="p"
-              sx={{ width: "fit-content" }}>
-              {requirements}
-            </Typography>
-          </Typography>
-
-          <Typography id="modal-modal-title" component="div" sx={{ mb: 5 }}>
-            <Typography id="modal-modal-title" variant="h5" sx={{ mb: 1 }}>
-              Responsibilities:
-            </Typography>
-            <Typography
-              id="modal-modal-title"
-              variant="p"
-              sx={{ width: "fit-content" }}>
-              {responsibilities}
-            </Typography>
-          </Typography>
-          <Typography id="modal-modal-title" component="div" sx={{ mb: 5 }}>
-            <Typography id="modal-modal-title" variant="h5" sx={{ mb: 1 }}>
-              Benefits:
-            </Typography>
-            <Typography
-              id="modal-modal-title"
-              variant="p"
-              sx={{ width: "fit-content" }}>
-              {benefits}
-            </Typography>
-          </Typography>
           <Typography
             component="div"
             sx={{ mb: 5, textTransform: "capitalize" }}>
@@ -129,28 +118,18 @@ const JobModal = ({ openModal, setOpenModal, post }) => {
               Other Information:
             </Typography>
 
-            <Typography id="modal-modal-title" component="div">
-              Vacancy: {vacancy}
-            </Typography>
+            {[{ vacancy }, { type }, { salary }, { timing }, { address }].map(
+              (obj, index) => (
+                <Typography id="modal-modal-title" component="div" key={index}>
+                  {capitalizeFirstLetter(Object.keys(obj)[0])} :{" "}
+                  {Object.values(obj)[0]}
+                </Typography>
+              )
+            )}
 
             <Typography id="modal-modal-title" component="div">
-              Type: {type}
+              Apply Last Date : {moment(applyLastDate).format("Do MMM YYYY")}
             </Typography>
-
-            <Typography id="modal-modal-title" component="div">
-              Salary: {salary}
-            </Typography>
-            <Typography id="modal-modal-title" component="div">
-              Timing – {timing}
-            </Typography>
-
-            <Typography id="modal-modal-title" component="div">
-              Address: {address}
-            </Typography>
-            {/* 
-            <Typography id="modal-modal-title" component="div">
-              Location: {location}
-            </Typography> */}
           </Typography>
         </Box>
         <Button

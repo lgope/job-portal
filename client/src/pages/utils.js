@@ -12,3 +12,5 @@ export const allDepartments = [
 export const jobLocations = ["On Site", "Remote"];
 
 export const jobTypes = ["Full Time", "Part Time"]
+
+export const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);

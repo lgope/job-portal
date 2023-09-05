@@ -17,7 +17,12 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import { useDispatch } from "react-redux";
 import { postJob } from "../../../redux/action/jobPostActions";
-import { allDepartments, jobLocations, jobTypes } from "../../utils";
+import {
+  allDepartments,
+  capitalizeFirstLetter,
+  jobLocations,
+  jobTypes,
+} from "../../utils";
 
 const CreatePost = () => {
   const classes = useStyles();
@@ -68,7 +73,7 @@ const CreatePost = () => {
     };
 
     dispatch(postJob(job));
-    navigate("/view-post", { replace: true });
+    navigate("/", { replace: true });
 
     e.target.reset();
   };
@@ -120,40 +125,6 @@ const CreatePost = () => {
                 </FormControl>
               </Grid>
 
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  required
-                  id="standard-multiline-static"
-                  label="Timing"
-                  name="timing"
-                  multiline
-                  fullWidth
-                />
-              </Grid>
-
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  required
-                  id="standard-multiline-static"
-                  label="Address"
-                  name="address"
-                  multiline
-                  fullWidth
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <div className="form-number-input">
-                  <input
-                    className="number-input-field"
-                    name="vacancy"
-                    type="number"
-                    min={1}
-                    step={1}
-                    placeholder="Vacancy"
-                  />
-                </div>
-              </Grid>
               <Grid item xs={12}>
                 <FormControl fullWidth>
                   <InputLabel>Department*</InputLabel>
@@ -183,75 +154,53 @@ const CreatePost = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  required
-                  id="standard-multiline-static"
-                  name="description"
-                  label="Description"
-                  multiline
-                  rows={4}
-                  fullWidth
-                />
-              </Grid>
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  required
-                  id="standard-multiline-static"
-                  name="responsibilities"
-                  label="Responsibilities"
-                  multiline
-                  rows={4}
-                  fullWidth
-                />
+
+              {/* combined all similar data */}
+              {[
+                "description",
+                "responsibilities",
+                "requirements",
+                "qualifications",
+                "benefits",
+              ].map((atr, index) => (
+                <Grid item xs={12} sm={12} key={index}>
+                  <TextField
+                    required
+                    id="standard-multiline-static"
+                    name={atr}
+                    label={capitalizeFirstLetter(atr)}
+                    multiline
+                    rows={4}
+                    fullWidth
+                  />
+                </Grid>
+              ))}
+
+              <Grid item xs={12}>
+                <div className="form-number-input">
+                  <input
+                    className="number-input-field"
+                    name="vacancy"
+                    type="number"
+                    min={1}
+                    step={1}
+                    placeholder="Vacancy"
+                  />
+                </div>
               </Grid>
 
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  required
-                  id="standard-multiline-static"
-                  label="Requirements"
-                  name="requirements"
-                  multiline
-                  rows={4}
-                  fullWidth
-                />
-              </Grid>
-
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  required
-                  id="standard-multiline-static"
-                  label="Qualifications"
-                  name="qualifications"
-                  multiline
-                  rows={4}
-                  fullWidth
-                />
-              </Grid>
-
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  required
-                  id="standard-multiline-static"
-                  label="Benefits"
-                  name="benefits"
-                  multiline
-                  rows={4}
-                  fullWidth
-                />
-              </Grid>
-
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  required
-                  id="standard-multiline-static"
-                  label="Salary"
-                  name="salary"
-                  multiline
-                  fullWidth
-                />
-              </Grid>
+              {["salary", "timing", "address"].map((atr, index) => (
+                <Grid item xs={12} sm={12} key={index}>
+                  <TextField
+                    required
+                    id="standard-multiline-static"
+                    label={capitalizeFirstLetter(atr)}
+                    name={atr}
+                    multiline
+                    fullWidth
+                  />
+                </Grid>
+              ))}
 
               <Grid item xs={12} sm={12}>
                 <TextField
